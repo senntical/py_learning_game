@@ -52,6 +52,9 @@ print("Player's selected race is " + char_flags["c_race"]) # informs user of sel
 
 print("Player's selected race is " + char_flags["c_race"]) # informs user of selected "c_race" value after "c_race" has been updated with user selection
 
+
+# this is a new section of code that needs to be adjusted to match the above code information - merge the two together into one larger whole
+
 q_awake = {"Question":"Are you awake?","Choice1":"Yes","Choice2":"No"}
 a_awake = {"AnswerC1":"GoTo:q_floating","AnswerC2":"Enjoy your sleep."}
 
