@@ -26,7 +26,9 @@ while True:
 
     # this prints out all entries in char_races as a string with , inbetween each entry
     # not sure yet how to add "and" inbetween the last two entries, or if I even want to
-    print(f"Available races are: {', '.join(x for x in char_races)}")
+    #print(f"Available races are: {', '.join(x for x in char_races)}")
+
+    print(', '.join(char_races[:-1]) + ', or ' + char_races[-1])
    
     char_select = input("Please select a race: \n").lower()
 
