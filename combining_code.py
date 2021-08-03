@@ -1,8 +1,13 @@
-char_flags = {"c_race": "NONE", "c_weapon": "NONE"} # dictionary containing flags for race and weapon choices; this can be updated throughout the script
+# This section of code is for setting the players race and weapon choices
 
-char_races = ["Human","Elf","Orc"] # list containing races; unlikely to be updated later in the script
+# dictionary containing flags for race and weapon choices; this can be updated throughout the script
+char_flags = {"c_race": "NONE", "c_weapon": "NONE"} 
 
-char_weapons = ["Sword","Bow"] # list containing weapons; unlikely to be updated later in the script
+# list containing races; unlikely to be updated later in the script
+char_races = ["Human","Elf","Orc"] 
+
+# list containing weapons; unlikely to be updated later in the script
+char_weapons = ["Sword","Bow"] 
 
  
 # this is a long function for printing all items in char_races onto one line with different separators (, or and) 
@@ -28,31 +33,70 @@ while True:
     # not sure yet how to add "and" inbetween the last two entries, or if I even want to
     #print(f"Available races are: {', '.join(x for x in char_races)}")
 
+    # prints out all entries in char_races dictionary, first removing the return carriage for all entries except the last, where it searches \n
+    # the dictionary backward starting at the end and ending at the first entry from the reverse side - I'm still not totally clear how this works
     print(', '.join(char_races[:-1]) + ', or ' + char_races[-1])
    
-    char_select = input("Please select a race: \n").lower()
+    # set char_select to all lower case of user input
+    char_select = input("Please select a race: ").lower()
 
-    char_races_lower = [x.lower() for x in char_races]  # creates a new list called char_races_lower from char_races that is all lower case
+    # creates a new list called char_races_lower from char_races that is all lower case
+    char_races_lower = [x.lower() for x in char_races]  
 
-    if char_select == char_races_lower[0]: # forces char_select to be all lower case and then checks if it is in the char_races_lower list
-        char_flags["c_race"] = char_races[0]
-        break
-    elif char_select == char_races_lower[1]:
-        char_flags["c_race"] = char_races[1]
-        break
-    elif char_select == char_races_lower[2]:
-        char_flags["c_race"] = char_races[2]
+    # This code checks if the user entered input exists in char_races_lower
+    if char_select in char_races_lower:
+        char_index = char_races_lower.index(char_select)
+        char_flags["c_race"] = char_index = char_races[char_index]
         break
     else:
-        print("--Not a valid race--\n")
+        print("Not valid a valid character choice")
+while True:
+
+    #test_funct(char_races) # calling the function test_funct and telling it to use char_races as the input for "race"
+
+    # this prints out all entries in char_races as a string with , inbetween each entry
+    # not sure yet how to add "and" inbetween the last two entries, or if I even want to
+    #print(f"Available races are: {', '.join(x for x in char_races)}")
+
+    # prints out all entries in char_races dictionary, first removing the return carriage for all entries except the last, where it searches \n
+    # the dictionary backward starting at the end and ending at the first entry from the reverse side - I'm still not totally clear how this works
+    print(', '.join(char_weapons[:-1]) + ', or ' + char_weapons[-1])
+   
+    # set char_select to all lower case of user input
+    weap_select = input("Please select a weapon: ").lower()
+
+    # creates a new list called char_races_lower from char_races that is all lower case
+    char_weapons_lower = [x.lower() for x in char_weapons]
+
+    # This code checks if the user entered input exists in char_races_lower
+    if weap_select in char_weapons_lower:
+        char_index = char_weapons_lower.index(weap_select)
+        char_flags["c_weapon"] = char_index = char_weapons[char_index]
+        break
+    else:
+        print("Not valid a valid weapon choice")
 
 
 
-#char_flags["c_race"] = "Elf" # for testing purposes, this set "c_race" to "Elf" - this will be replaced with user input
+        
 
-print("Player's selected race is " + char_flags["c_race"]) # informs user of selected "c_race" value after "c_race" has been updated with user selection
+    # This is the old code I used to check if the user entered value existed in the list - now using the code above
 
-print("Player's selected race is " + char_flags["c_race"]) # informs user of selected "c_race" value after "c_race" has been updated with user selection
+    #if char_select == char_races_lower[0]: # forces char_select to be all lower case and then checks if it is in the char_races_lower list
+    #    char_flags["c_race"] = char_races[0]
+    #    break
+    #elif char_select == char_races_lower[1]:
+    #    char_flags["c_race"] = char_races[1]
+    #    break
+    #elif char_select == char_races_lower[2]:
+    #    char_flags["c_race"] = char_races[2]
+    #    break
+    #else:
+    #    print("--Not a valid race--\n")
+
+# informs user of selected "c_race" value after "c_race" has been updated with user selection
+print("Player's selected race is " + char_flags["c_race"]) 
+print("Player's selected weapon is " + char_flags["c_weapon"])
 
 q_awake = {"Question":"Are you awake?","Choice1":"Yes","Choice2":"No"}
 a_awake = {"AnswerC1":"GoTo:q_floating","AnswerC2":"Enjoy your sleep."}
