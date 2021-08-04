@@ -1,0 +1,15 @@
+CHOICES
+{}\t{}\t"ENTRY"\t"Take the mossy door"\t"MOSSY ROOM"
+{}\t{}\t"ENTRY"\t"Take the stone door"\t"STONE ROOM"
+{}\t{}\t"STONE ROOM"\t"Run away!"\t"ENTRY"
+{"hasSword":1}\t{}\t"STONE ROOM"\t"Attack the beast!"\t"VICTORY"
+{}\t{}\t"MOSSY ROOM"\t"Leave"\t"ENTRY"
+{"hasSword":0}\t{"hasSword":1}\t"MOSSY ROOM"\t"Get the sword"\t"MOSSY ROOM"
+{}\t{}\t"VICTORY"\t"I won!"\t""
+SCENES
+"ENTRY"\t"You are in a dungeon. There is a stone door to the left, and a mossy door to the right"
+"STONE ROOM"\t"This room is all stone. There is a savage beast here. If you had a sword, you could slay it!"
+"MOSSY ROOM"\t"This room is very mossy. On a pedestal, rests a sword."
+"VICTORY"\t"You have won!"
+TAGS
+"hasSword"\t0
